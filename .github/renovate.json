@@ -9,6 +9,13 @@
         "#\\s?renovate: datasource=(?<datasource>.*?) depName=(?<depName>.*?)( versioning=(?<versioning>.*?))?( extractVersion=(?<extractVersion>.*?))?\\s*Version:\\s*(?<currentValue>.*)\\s"
       ],
       "versioningTemplate": "{{#if versioning}}{{{versioning}}}{{else}}semver{{/if}}"
+    },
+    {
+      "customType": "regex",
+      "fileMatch": [".\\.spec"],
+      "matchStrings": [
+        "#\\s?renovate: datasource=(?<datasource>.*?) packageName=(?<packageName>.*?) depName=(?<depName>.*?) ref=(?<currentValue>.*?)\\s*%define\\s+digest\\s+(?<currentDigest>.*)\\s*"
+      ]
     }
   ]
 }
