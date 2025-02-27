@@ -6,6 +6,7 @@
 %define debug_package %{nil}
 
 Name:           mpv-uosc
+# renovate: datasource=github-releases depName=tomasklaen/uosc
 Version:        5.8.0
 Release:        1%{?dist}
 Summary:        %{common_description}
