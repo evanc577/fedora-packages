@@ -10,7 +10,7 @@ Name:           mpv-uosc
 Version:        5.8.0
 Release:        %autorelease
 Summary:        %{common_description}
-License:        LGPL
+License:        LGPL-2.1-only
 URL:            https://github.com/%{gh_user}/%{gh_repo}
 Source0:        https://github.com/%{gh_user}/%{gh_repo}/archive/refs/tags/%{version}.tar.gz
 BuildRequires:  golang git-core
@@ -32,11 +32,10 @@ for dir in {char-conv,elements,intl,lib}; do
     install -Dm 644 %{_builddir}/%{pkgname}/src/uosc/${dir}/** -t %{buildroot}%{_sysconfdir}/mpv/scripts/uosc/${dir}/
 done
 install -Dm 644 %{_builddir}/%{pkgname}/src/uosc/main.lua -t %{buildroot}%{_sysconfdir}/mpv/scripts/uosc/
-install -Dm 644 %{_builddir}/%{pkgname}/LICENSE* -t %{buildroot}%{_prefix}/share/licenses/%{name}/
 
 %files
+%license LICENSE.LGPL
 %{_sysconfdir}/mpv/
-%{_prefix}/share/licenses/%{name}/
 
 %changelog
 * Thu Feb 27 2025 Evan Chang <evanc577@gmail.com> - 5.8.0
