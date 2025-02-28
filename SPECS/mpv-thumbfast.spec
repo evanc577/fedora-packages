@@ -9,7 +9,7 @@
 
 Name:           mpv-thumbfast
 Version:        0
-Release:        %autorelease
+Release:        2
 Summary:        %{common_description}
 License:        MPL-2.0
 URL:            https://github.com/%{gh_user}/%{gh_repo}
