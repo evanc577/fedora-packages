@@ -21,7 +21,7 @@ BuildArch:      noarch
 %{common_description}
 
 %prep
-%setup -n %{pkgname}
+%setup -q -n %{pkgname}
 
 %install
 install -Dm 644 %{_builddir}/%{pkgname}/thumbfast.conf -t %{buildroot}%{_sysconfdir}/mpv/script-opts/

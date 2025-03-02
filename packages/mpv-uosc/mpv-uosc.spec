@@ -20,7 +20,7 @@ BuildRequires:  golang git-core
 %{common_description}
 
 %prep
-%setup -n %{pkgname}
+%setup -q -n %{pkgname}
 
 %build
 tools/build ziggy
