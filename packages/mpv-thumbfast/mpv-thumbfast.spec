@@ -9,18 +9,18 @@
 
 Name:           mpv-thumbfast
 Version:        0
-Release:        2
+Release:        3%{?dist}
 Summary:        %{common_description}
 License:        MPL-2.0
 URL:            https://github.com/%{gh_user}/%{gh_repo}
 Source0:        https://github.com/%{gh_user}/%{gh_repo}/archive/%{digest}.zip
+Requires:       mpv
 BuildArch:      noarch
 
 %description
 %{common_description}
 
 %prep
-echo %{pkgname}
 %setup -n %{pkgname}
 
 %install

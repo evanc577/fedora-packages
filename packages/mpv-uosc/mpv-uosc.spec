@@ -8,11 +8,12 @@
 Name:           mpv-uosc
 # renovate: datasource=github-releases depName=tomasklaen/uosc
 Version:        5.8.0
-Release:        2
+Release:        3%{?dist}
 Summary:        %{common_description}
 License:        LGPL-2.1-only
 URL:            https://github.com/%{gh_user}/%{gh_repo}
 Source0:        https://github.com/%{gh_user}/%{gh_repo}/archive/refs/tags/%{version}.tar.gz
+Requires:       mpv
 BuildRequires:  golang git-core
 
 %description
