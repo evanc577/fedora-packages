@@ -1,0 +1,25 @@
+#!/bin/bash
+set -euo pipefail
+# Waits until network is connected and unmetered
+# wait-for-network {sleep-interval}
+
+is_unmetered() {
+    metered="$(busctl --json short get-property org.freedesktop.NetworkManager /org/freedesktop/NetworkManager org.freedesktop.NetworkManager Metered | jq '.data')"
+    # 2: NM_METERED_NO
+    # 4: NM_METERED_GUESS_NO
+    [[ "$metered" == 2 || "$metered" == 4 ]]
+}
+
+is_connected() {
+    connectivity="$(busctl --json short get-property org.freedesktop.NetworkManager /org/freedesktop/NetworkManager org.freedesktop.NetworkManager Connectivity | jq '.data')"
+    # 4: NM_CONNECTIVITY_FULL
+    [[ "$connectivity" == 4 ]]
+}
+
+while true; do
+    if is_unmetered && is_connected; then
+        exit 0
+    else
+        sleep ${1:-60}
+    fi
+done
