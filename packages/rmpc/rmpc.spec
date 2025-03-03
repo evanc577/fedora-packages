@@ -7,7 +7,7 @@
 Name:           rmpc
 # renovate: datasource=github-releases depName=mierak/rmpc versioning=semver-coerced
 Version:        0.8.0
-Release:        1%{?dist}
+Release:        2%{?dist}
 Summary:        %{common_description}
 License:        BSD-3-Clause
 URL:            https://mierak.github.io/rmpc/
@@ -25,7 +25,7 @@ Requires:       mpd
 cargo b --release
 
 %install
-install -Dm 644 %{_builddir}/%{pkgname}/target/release/%{name} -t %{buildroot}%{_bindir}
+install -Dm 755 %{_builddir}/%{pkgname}/target/release/%{name} -t %{buildroot}%{_bindir}
 
 %files
 %license LICENSE
