@@ -1,7 +1,7 @@
 %global common_description Patched automatic updates for rpm-ostree and flatpak
 
 Name:           evanc577-update-services
-Version:        1.0.0
+Version:        1.0.1
 Release:        1%{?dist}
 Summary:        %{common_description}
 License:        MIT
@@ -34,5 +34,8 @@ install -Dm 755 src/%{_bindir}/wait-for-network -t %{buildroot}%{_bindir}/
 
 
 %changelog
+* Thu Mar 06 2025 Evan Chang <evanc577@gmail.com> - 1.0.1
+- Set timeout waiting for network to infinity
+
 * Sat Mar 01 2025 Evan Chang <evanc577@gmail.com> - 1.0.0
 - Initial version
