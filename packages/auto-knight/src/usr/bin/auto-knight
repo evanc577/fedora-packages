@@ -1,0 +1,58 @@
+#!/bin/bash
+# This script automatically changes the global theme of KDE Plasma based on the time of day.
+# It utilizes KDE's built-in Night Light feature to determine whether it is day or night.
+# The script is intended to be run on startup.
+# Original Author: Dmitriy Safiullin
+
+set -euo pipefail
+
+# Theme and command settings
+config_file=${XDG_CONFIG_HOME:-$HOME/.config}/auto-knight/config.json
+if [[ ! -f "$config_file" ]]; then
+    echo "No config file found: $config_file"
+    exit 1
+fi
+
+light_colorscheme=$(jq --raw-output --exit-status '.light_colorscheme' "$config_file") || (echo "Unable to parse light_colorscheme"; exit 1)
+dark_colorscheme=$(jq --raw-output --exit-status '.dark_colorscheme' "$config_file") || (echo "Unable to parse dark_colorscheme"; exit 1)
+echo "Light theme: $light_colorscheme"
+echo "Dark theme: $dark_colorscheme"
+
+# Function to set the theme and update state
+set_theme() {
+    if [[ $1 == "light" ]]; then
+        colorscheme=$light_colorscheme
+    elif [[ $1 == "dark" ]]; then
+        colorscheme=$dark_colorscheme
+    fi
+    plasma-apply-colorscheme $colorscheme
+    last_theme=$1
+}
+
+# Gets current daylight status
+is_daylight() {
+    daylight_status=$(qdbus-qt6 org.kde.KWin /org/kde/KWin/NightLight org.kde.KWin.NightLight.daylight)
+    [[ "$daylight_status" == "true" ]]
+}
+
+# Initialize the theme based on the current daylight status
+if is_daylight; then
+    set_theme "light"
+else
+    set_theme "dark"
+fi
+
+# Monitor changes in daylight status and update the theme accordingly
+dbus-monitor --session "type='signal',interface='org.freedesktop.DBus.Properties', member='PropertiesChanged', path='/org/kde/KWin/NightLight'" |
+    grep --line-buffered "daylight" |
+    while read -r line; do
+        # Updates the theme if it needs to be changed
+        if is_daylight; then
+            theme="light"
+        else
+            theme="dark"
+        fi
+        if [[ "$last_theme" != "$theme" ]]; then
+            set_theme "$theme"
+        fi
+    done

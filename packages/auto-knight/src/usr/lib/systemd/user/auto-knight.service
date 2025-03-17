@@ -1,0 +1,14 @@
+[Unit]
+Description=Automatically toggle Plasma dark mode
+After=plasma-plasmashell.service
+Requires=plasma-plasmashell.service
+BindsTo=plasma-plasmashell.service
+
+[Service]
+Type=simple
+ExecStart=/usr/bin/auto-knight
+Restart=on-failure
+RestartSec=10s
+
+[Install]
+WantedBy=default.target
