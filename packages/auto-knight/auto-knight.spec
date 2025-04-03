@@ -1,7 +1,7 @@
 %global common_description Automatic dark mode switcher for KDE Plasma 
 
 Name:           auto-knight
-Version:        1.0.0
+Version:        1.0.1
 Release:        1%{?dist}
 Summary:        %{common_description}
 License:        MIT
@@ -30,5 +30,7 @@ install -Dm 644 src/%{_userunitdir}/auto-knight.service -t %{buildroot}%{_userun
 
 
 %changelog
+* Thu Apr 03 2025 Evan Chang <evanc577@gmail.com> - 1.0.1
+- Adjust systemd service file
 * Mon Mar 17 2025 Evan Chang <evanc577@gmail.com> - 1.0.0
 - Initial version

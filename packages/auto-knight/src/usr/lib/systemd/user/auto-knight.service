@@ -1,8 +1,7 @@
 [Unit]
 Description=Automatically toggle Plasma dark mode
+PartOf=plasma-plasmashell.service
 After=plasma-plasmashell.service
-Requires=plasma-plasmashell.service
-BindsTo=plasma-plasmashell.service
 
 [Service]
 Type=simple
@@ -11,4 +10,4 @@ Restart=on-failure
 RestartSec=10s
 
 [Install]
-WantedBy=default.target
+UpheldBy=plasma-plasmashell.service
