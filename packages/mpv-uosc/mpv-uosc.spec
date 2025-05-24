@@ -7,7 +7,7 @@
 
 Name:           mpv-uosc
 # renovate: datasource=github-releases depName=tomasklaen/uosc
-Version:        5.8.0
+Version:        5.9.2
 Release:        3%{?dist}
 Summary:        %{common_description}
 License:        LGPL-2.1-only
