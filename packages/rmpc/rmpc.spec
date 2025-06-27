@@ -6,7 +6,7 @@
 
 Name:           rmpc
 # renovate: datasource=github-releases depName=mierak/rmpc versioning=semver-coerced
-Version:        0.8.0
+Version:        0.9.0
 Release:        3%{?dist}
 Summary:        %{common_description}
 License:        BSD-3-Clause
@@ -14,6 +14,7 @@ URL:            https://mierak.github.io/rmpc/
 Source0:        https://github.com/%{gh_user}/%{gh_repo}/archive/refs/tags/v%{version}.tar.gz
 BuildRequires:  cargo
 Requires:       mpd
+Recommends:     cava
 
 %description
 %{common_description}
