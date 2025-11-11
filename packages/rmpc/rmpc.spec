@@ -7,7 +7,7 @@
 Name:           rmpc
 # renovate: datasource=github-releases depName=mierak/rmpc versioning=semver-coerced
 Version:        0.10.0
-Release:        3%{?dist}
+Release:        1%{?dist}
 Summary:        %{common_description}
 License:        BSD-3-Clause
 URL:            https://mierak.github.io/rmpc/
