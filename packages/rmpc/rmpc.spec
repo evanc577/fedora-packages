@@ -6,7 +6,7 @@
 
 Name:           rmpc
 # renovate: datasource=github-releases depName=mierak/rmpc versioning=semver-coerced
-Version:        0.10.0
+Version:        0.11.0
 Release:        1%{?dist}
 Summary:        %{common_description}
 License:        BSD-3-Clause
