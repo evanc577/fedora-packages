@@ -4,14 +4,14 @@
 %global pkgname klassy-%{version}
 
 Name:           klassy
-# renovate: datasource=github-releases depName=paulmcauley/klassy
-Version:        6.4.breeze6.4.0
+# renovate: datasource=github-releases depName=paulmcauley/klassy versioning=semver-coerced
+Version:        6.4
 Release:        1%{?dist}
 Summary:        %{common_description}
 License:        GPL-2.0-or-later
 Group:          System/GUI/KDE
 URL:            https://github.com/%{gh_user}/%{gh_repo}
-Source0:        https://github.com/%{gh_user}/%{gh_repo}/archive/refs/tags/%{version}.tar.gz
+Source0:        https://github.com/%{gh_user}/%{gh_repo}/archive/refs/tags/v%{version}.tar.gz
 BuildRequires:  git-core
 BuildRequires:  gettext
 
