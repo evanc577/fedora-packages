@@ -5,7 +5,7 @@
 
 Name:           klassy
 # renovate: datasource=github-releases depName=paulmcauley/klassy versioning=semver-coerced
-Version:        6.5.2
+Version:        6.5.3
 Release:        1%{?dist}
 Summary:        %{common_description}
 License:        GPL-2.0-or-later
