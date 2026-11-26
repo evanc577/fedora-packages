@@ -5,7 +5,7 @@
 %define debug_package %{nil}
 
 # renovate: datasource=git-refs packageName=https://github.com/po5/thumbfast depName=thumbfast ref=master
-%define digest 0f711de3138c9bd6718209d819ac54022c23ded2
+%define digest 3b02f84d6f1fd2fd94110357e06b989883420a8c
 
 Name:           mpv-thumbfast
 Version:        0
